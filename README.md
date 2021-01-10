@@ -10,7 +10,7 @@
 ## 数据结构
 
 ## 算法
-* [leetcode 题解](https://github.com/liyongkanger/Java_notes/blob/main/leetcode%E9%A2%98%E8%A7%A3)
+* [leetcode 题解](https://github.com/liyongkanger/Java_notes/blob/main/leetcode%E9%A2%98%E8%A7%A3.md)
   
 * [基础算法学习笔记]
 * [提高算法学习笔记]
