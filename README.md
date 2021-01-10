@@ -10,7 +10,9 @@
 ## 数据结构
 
 ## 算法
-[LeetCode笔记]
+### leetcode 题解
+  1. [lc15 三数之和](https://github.com/liyongkanger/Java_notes/blob/master/docs/%E7%AE%97%E6%B3%95/LeetCode/lc15%20%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C.md)
+  2.
 [基础算法学习笔记]
 [提高算法学习笔记]
 
