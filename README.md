@@ -12,7 +12,7 @@
 ## 算法
 
 ## mysql
-
+[mysql基础](https://github.com/liyongkanger/Java_notes/blob/master/docs/mysql/Mysql_zy.md)
 ## SpringBoot
 
 ## SpringCloud
