@@ -17,7 +17,7 @@
 [提高算法学习笔记]
 
 ## mysql
-[mysql笔记](https://github.com/liyongkanger/Java_notes/blob/master/docs/mysql/Mysql_zy.md)
+[mysql笔记(索引优化分析,查询截取分析,主从复制,锁机制)](https://github.com/liyongkanger/Java_notes/blob/master/docs/mysql/Mysql_zy.md)
 ## SpringBoot
 
 ## SpringCloud
