@@ -165,11 +165,37 @@ select <select_list> from table A full outer join table B on A.key = B.key wehre
 
 > 怎么玩？ 
 
+Explain + Sql语句
+
 执行计划包含的信息`id select_type table type possible_keys key key_len ref rows Extra`
 
 #### 解释
 
 > id
 
-1. select 查询的序列号，包含一组数字，表示查询中执行select字句或操作表的顺序，3种情况： id相同：执行顺序由上至下， id不同，如果是子查询id的序号会递增，id值越高优先级越高越先被执行，id不相同，同时存在
+1. select 查询的序列号，包含一组数字，表示查询中执行select字句或操作表的顺序，3种情况： id相同：执行顺序由上至下， id不同，如果是子查询id的序号会递增，id值越高优先级越高越先被执行，id相同和不相同，同时存在(id相同可以认为是一组，从上往下顺序执行，所有组中，id值越大，优先级越高，越先执行)
+
+> select_type 查询的类型，主要用于区别普通查询，联合查询，子查询等的复杂查询
+
+* simple 简单的select查询，查询中不包含子查询或者UNION
+* primary 查询中若包含任何复杂的子部分，最外层查询则被标记为
+* subquery 在select或者where列中包含了子查询
+* derived 在from列表中包含了子查询被标记为derived myql会递归执行这些子查询，把结果放在临时表中
+* union 若第二个select出现在union之后，则被标记为union 若union包含在from字句中外层select将被标记为derived
+* union result 从union表获取结果的select
+
+> table
+
+显示这一行的数据关于哪张表的
+
+> type 
+
+type显示的是访问类型，是较为重要的一个指标，结果值从最好到最坏依次是：system ->const ->eq_ref->ref->fulltext->ref_or_null ->index_merge->unique_subquery->index_subquery->range->index -> ALL
+
+一般来说得保证查询至少达到range级别，最好能达到ref   system > const > eq_ref >ref >index > ALL
+
+* system: 表里只有一行记录(等于系统表),这也是const类型的特例，平时不会出现，这个也可以忽略不计
+* const: 表示通过索引一次就找到了，cosnt用于比较primary key 或者 unique索引。因为只匹配一行数据，所以很快，如将主键至于where列表中，myqlsql就能将该查询转换为一个常量
+* eq_ref 唯一性 索引，对于每个索引键，表中只有一条记录与他匹配，常见于主键或唯一索引扫描
+* ref 非唯一索引扫描，返回匹配某个单独值的所有行，本质上也是一种索引访问，他返回所有匹配某个单独值的行。
 
