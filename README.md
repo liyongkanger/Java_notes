@@ -29,5 +29,5 @@
 ## 考研
 
 * [数据结构]()
-* [政治]()
+* [政治](https://github.com/liyongkanger/Java_notes/blob/main/%E6%94%BF%E6%B2%BB.md)
 
